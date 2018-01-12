@@ -1,0 +1,49 @@
+.iconfont {
+  font-size: 32px;
+}
+.card-panel {
+  cursor: pointer;
+  color: #666;
+  background: #fff;
+  border-radius: 6px;
+  box-shadow: 4px 4px 40px rgba(0, 0, 0, 0.05);
+  .ant-card-body {
+    padding: 0;
+    height: 108px;
+    .card-panel-icon-wrapper {
+      float: left;
+      padding: 30px;
+      transition: all 0.38s ease-out;
+      border-radius: 6px;
+      &:hover {
+        .icon-people {
+          color: #40c9c6;
+        }
+        .icon-messagex {
+          color: #36a3f7;
+        }
+        .icon-qian {
+          color: #f4516c;
+        }
+        .icon-gouwuche {
+          color: #34bfa3;
+        }
+      }
+    }
+    .card-panel-description {
+      float: right;
+      font-weight: bold;
+      padding: 26px;
+      margin-left: 0px;
+      .card-panel-text {
+        line-height: 18px;
+        color: rgba(0, 0, 0, 0.45);
+        font-size: 16px;
+        margin-bottom: 12px;
+      }
+      .card-panel-num {
+        font-size: 20px;
+      }
+    }
+  }
+}
