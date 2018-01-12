@@ -17,10 +17,13 @@ export default class LineChart extends React.Component {
   }
   componentWillReceiveProps(nextProps) {
     this.setChartOption({ ...nextProps.chartData })
+    this.__chartResizeHanlder()
+    console.log('componentWillReceiveProps')
   }
   initChart() {
     myLineChart = echarts.init(document.getElementById('chartId'))
     this.setChartOption()
+    window.addEventListener('resize', this.__chartResizeHanlder)
   }
   setChartOption({ expectedData, actualData } = this.state) {
     myLineChart.setOption({
@@ -94,14 +97,30 @@ export default class LineChart extends React.Component {
       ]
     })
   }
+  __chartResizeHanlder(){
+      if(myLineChart){
+          myLineChart.resize()
+      }
+  }
   componentDidMount() {
     this.initChart()
+    // 监听侧边栏的变化
+    const sidebarElm = document.getElementsByClassName('ant-layout-sider')[0]
+    sidebarElm.addEventListener('transitionend', this.__chartResizeHanlder)
+    // 窗口方法或者缩小reszie
+    console.log('componentDidMount')
   }
   componentWillUnmount() {
     myLineChart.dispose()
     myLineChart = null
+
+    // 移除侧边栏和窗口监听
+    window.removeEventListener('resize', this.__chartResizeHanlder)
+    const sidebarElm = document.getElementsByClassName('ant-layout-sider')[0]
+    sidebarElm.removeEventListener('transitionend', this.__chartResizeHanlder)
+    console.log('componentWillUnmount')
   }
   render() {
-    return <div id="chartId" style={{ width: '100%', height: '350px' }} />
+    return <div id="chartId" style={{ width: '100%', height: '450px' }} />
   }
 }

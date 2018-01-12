@@ -37,7 +37,6 @@ export default class DashBoard extends React.Component {
   render() {
     return (
       <div>
-        <p>dashBoard</p>
         <PanelGroup handleSetLineChartData={this.handleSetLineChartData} />
         <Row
           style={{
