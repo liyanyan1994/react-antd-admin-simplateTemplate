@@ -2,9 +2,17 @@
 
 ##运行环境说明
 > react V16.2.0
+
 > react-router-dom V4.2.2
+
 > antd V3.1.1
+
 > node V6.11.0
+
+##效果图
+ <p align="center">
+  <img width="900" src="http://www.liyanyan1994.xyz/images/dashbord.png">
+</p>
 
 ## 项目说明
     最近很闲,开始学习react，在github上找了好久没有发现使用最新的react-router V4.X以上的后台管理系统.
