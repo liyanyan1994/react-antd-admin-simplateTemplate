@@ -108,7 +108,6 @@ export default class LineChart extends React.Component {
     const sidebarElm = document.getElementsByClassName('ant-layout-sider')[0]
     sidebarElm.addEventListener('transitionend', this.__chartResizeHanlder)
     // 窗口方法或者缩小reszie
-    console.log('componentDidMount')
   }
   componentWillUnmount() {
     myLineChart.dispose()
@@ -118,9 +117,8 @@ export default class LineChart extends React.Component {
     window.removeEventListener('resize', this.__chartResizeHanlder)
     const sidebarElm = document.getElementsByClassName('ant-layout-sider')[0]
     sidebarElm.removeEventListener('transitionend', this.__chartResizeHanlder)
-    console.log('componentWillUnmount')
   }
   render() {
-    return <div id="chartId" style={{ width: '100%', height: '450px' }} />
+    return <div id="chartId" style={{height: '450px' }} />
   }
 }

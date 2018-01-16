@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import { Link, withRouter, matchPath } from 'react-router-dom'
 import { childRoutes } from '../../router/index'
-
 import { Layout, Menu, Icon } from 'antd'
 const { Sider } = Layout
 const SubMenu = Menu.SubMenu
@@ -96,7 +95,7 @@ class SiderBar extends Component {
     }
     const menu = _menuProcess(childRoutes)
     return (
-      <Sider trigger={null} collapsible collapsed={this.state.collapsed}>
+      <Sider trigger={null} collapsible collapsed={this.state.collapsed} id='sideId'>
         <Menu
           theme="dark"
           mode={this.state.mode}

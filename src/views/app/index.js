@@ -6,7 +6,7 @@ import { childRoutes } from '../../router/index'
 import SiderBar from '../../components/sidebar/index'
 import NavPath from '../../components/navpath/index'
 
-const { Header, Content } = Layout
+const { Header, Content} = Layout
 
 class App extends Component {
   constructor() {
@@ -22,44 +22,41 @@ class App extends Component {
   }
   render() {
     return (
-      <Layout>
-        <SiderBar checked={this.state.collapsed} />
-        <Layout>
-          <Header style={{ background: '#fff', padding: 0 }}>
-            <NavPath
-              initialChecked={this.state.collapsed}
-              callbackParent={this.onCheckedChange}
-            />
-          </Header>
-          <Content style={{ margin: '32px' }}>
-            <div style={{ minHeight: 460 }}>
-              {childRoutes.map((childRoute) => {
-                if (childRoute.hasOwnProperty('child')) {
-                  return childRoute.child.map((route) => {
-                    return (
-                      <Route
-                        key={route.key}
-                        path={route.url}
-                        component={route.component}
-                        exact={route.exactly}
-                      />
-                    )
-                  })
-                } else {
-                  return (
-                    <Route
-                      key={childRoute.key}
-                      path={childRoute.url}
-                      component={childRoute.component}
-                      exact={childRoute.exactly}
-                    />
-                  )
-                }
-              })}
-            </div>
-          </Content>
+        <Layout className="ant-layout-has-sider">
+            <SiderBar checked={this.state.collapsed} />
+            <Content>
+                <Header style={{ background: '#fff', padding: 0 }}>
+                    <NavPath initialChecked={this.state.collapsed} callbackParent={this.onCheckedChange}/>
+                </Header>
+                <Content style={{ padding: '24px 32px' }}>
+                    <div style={{ minHeight: 460 }}>
+                    {childRoutes.map(childRoute => {
+                        if (childRoute.hasOwnProperty('child')) {
+                        return childRoute.child.map(route => {
+                            return (
+                            <Route
+                                key={route.key}
+                                path={route.url}
+                                component={route.component}
+                                exact={route.exactly}
+                            />
+                            )
+                        })
+                        } else {
+                        return (
+                            <Route
+                            key={childRoute.key}
+                            path={childRoute.url}
+                            component={childRoute.component}
+                            exact={childRoute.exactly}
+                            />
+                        )
+                        }
+                    })}
+                    </div>
+                </Content>
+            </Content>
         </Layout>
-      </Layout>
     )
   }
 }

@@ -17,6 +17,8 @@ import Page2 from '../views/page2/index'
 import Card from '../components/card/index'
 import Table from '../components/table/index'
 import NoMatch from '../components/nomatch/index'
+import BarChart from '../components/barchart/index'
+import LineChart from '../components/linechart/index'
 
 export const childRoutes = [
   {
@@ -55,20 +57,20 @@ export const childRoutes = [
   },
   {
     key: 'sub3',
-    name: 'Team',
+    name: 'Chart',
     icon: 'team',
     child: [
       {
         key: '4',
-        name: 'team1',
-        url: '/team/team1',
-        component: Page2
+        name: 'line',
+        url: '/chart/line',
+        component: LineChart
       },
       {
         key: '5',
-        name: 'team2',
-        url: '/team/team2',
-        component: Page2
+        name: 'bar',
+        url: '/chart/bar',
+        component: BarChart
       }
     ]
   }
@@ -77,16 +79,13 @@ export const childRoutes = [
 // 面包屑导航栏url对应的name
 export const breadcrumbNameMap = {
     '/dashboard': 'Dashboard',
-    
     '/components': 'Components',
     '/components/card': 'Card',
     '/components/table': 'Table',
-
     '/page2': 'Page2',
-
-    '/team': 'Team',
-    '/team/team1': 'Team1',
-    '/team/team2': 'Team2',
+    '/chart': 'Chart',
+    '/chart/line': 'Line',
+    '/chart/bar': 'Bar',
   };
 
 
